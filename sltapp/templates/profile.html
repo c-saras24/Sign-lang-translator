@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    {% load widget_tweaks %}
+<head>
+        <style>
+            body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+.main{
+	width: 500px;
+	height: 500px;
+	background: red;
+	overflow: hidden;
+	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+h1{
+	color: #fff;
+	font-size:42px;
+	justify-content:center;
+	display: flex;
+	margin: 30px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+label{
+	color: #fff;
+	font-size:22px;
+	justify-content:left;
+	float: left;
+	margin-left: 60px;
+	margin-bottom:20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+.inp{
+	width: 100%;
+	height: 20px;
+	background: #e0dede;
+	justify-content:center;
+	display: block;
+	overflow: hidden;
+	margin-left:23px;
+	margin-bottom:20px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+button{
+	width: 30%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #3d26b0;
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+button:hover{
+	background: #4c44b8;
+}
+
+
+</style>
+<script type="text/javascript" lang="javascript" src="./responsiveRegistaration.js">
+    function SaveDetails() {
+            validateControls();
+    }
+
+function validateControls() {
+//FirstName
+var fname = document.getElementById("uname")
+if (fname.value == "") {
+window.alert("please enter your first name");
+fname.focus();
+return false;
+}
+//Email
+var email = document.getElementById("email")
+if (email.value == "") {
+window.alert("please enter your valid email Id");
+email.focus();
+return false;
+}
+//Mobile
+var mobile = document.getElementById("mobile")
+if (mobile.value == "") {
+window.alert("please enter your 10 digits mobile no.");
+mobile.focus();
+return false;
+}
+
+// Password
+var password = document.getElementById("password")
+if (password.value == "") {
+window.alert("please enter your password");
+password.focus();
+return false;
+}
+
+getControlValues();
+
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="main">  
+    
+                <div class="signup">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h1>Profile<h2>
+						<table><tr></tr><td><label>Username:</label></td><td>{% render_field dpro.username class="flow-control inp" placeholder="Username" %}</td></tr>
+						<tr><td><label>Mobile No:</label></td><td>{% render_field cpro.mobile class="inp flow-control" placeholder="Mobile no." %}</td></tr>
+                        <tr><td><label>Email:</label></td><td>{% render_field dpro.email class="inp flow-control" placeholder="Email" %}</td></tr>
+						<tr><td><label>Password:</label></td><td>{% render_field dpro.password class="inp flow-control" placeholder="Password" %}</td></tr></table>
+                        <button onclick="SaveDetails()">Save Changes</button>
+                    </form>
+                </div><br><br>
+
+        </div>	
+        </div>
+    </body>
+</html>
+    
+   
